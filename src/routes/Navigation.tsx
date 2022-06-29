@@ -1,27 +1,33 @@
+import logo from '../logo.svg'
+import { LazyPage1 } from '../01-lazyload/pages/LazyPage1'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  NavLink
-} from 'react-router-dom';
-
-import logo from '../logo.svg';
+  NavLink,
+} from "react-router-dom";
 
 export const Navigation = () => {
   return (
     <Router>
       <div className="main-layout">
         <nav>
-            <img src={ logo } alt="React Logo" />
+          <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
+              <NavLink to="/lazy1" activeClassName="nav-active" exact>
+                Lazy1
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about" activeClassName="nav-active" exact>About</NavLink>
+              <NavLink to="/lazy2" activeClassName="nav-active" exact>
+                Lazy2
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/users" activeClassName="nav-active" exact>Users</NavLink>
+              <NavLink to="/lazy3" activeClassName="nav-active" exact>
+                Lazy3
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -29,17 +35,17 @@ export const Navigation = () => {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <h1>About</h1>
+          <Route path="/lazy1">
+            <LazyPage1 />
           </Route>
-          <Route path="/users">
+          <Route path="/lazy2">
             <h1>Users</h1>
           </Route>
-          <Route path="/">
+          <Route path="/lazy3">
             <h1>Home</h1>
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
+};
