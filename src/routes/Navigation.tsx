@@ -1,51 +1,55 @@
 import logo from '../logo.svg'
-import { LazyPage1 } from '../01-lazyload/pages/LazyPage1'
+import { BrowserRouter } from 'react-router-dom'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
+    Navigate,
+    NavLink,
+    Route,
+    Routes
+    } from 'react-router-dom'
+
 
 export const Navigation = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="main-layout">
         <nav>
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/lazy1" activeClassName="nav-active" exact>
-                Lazy1
+              <NavLink
+                to="/home"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/lazy2" activeClassName="nav-active" exact>
-                Lazy2
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                About
               </NavLink>
             </li>
             <li>
-              <NavLink to="/lazy3" activeClassName="nav-active" exact>
-                Lazy3
+              <NavLink
+                to="/users"
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                Users
               </NavLink>
             </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/lazy1">
-            <LazyPage1 />
-          </Route>
-          <Route path="/lazy2">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/lazy3">
-            <h1>Home</h1>
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="about" element={<h1>About Page</h1>} />
+          <Route path="users" element={<h1>Users Page</h1>} />
+          <Route path="home" element={<h1>Home Page</h1>} />
+
+          <Route path="/*" element={<Navigate to="/home" replace />} />
+        </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
