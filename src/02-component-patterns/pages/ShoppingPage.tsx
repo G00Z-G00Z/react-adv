@@ -1,5 +1,5 @@
 import React from 'react'
 
 export const ShoppingPage = () => {
-  return <div>ShoppingPage</div>;
+  return <h1>ShoppingPage</h1>;
 };
