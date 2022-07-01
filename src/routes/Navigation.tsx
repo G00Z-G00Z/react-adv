@@ -1,11 +1,11 @@
 import logo from '../logo.svg'
 import { BrowserRouter } from 'react-router-dom'
 import {
-    Navigate,
-    NavLink,
-    Route,
-    Routes
-    } from 'react-router-dom'
+  Navigate,
+  NavLink,
+  Route,
+  Routes
+  } from 'react-router-dom'
 import { routes } from './routes'
 import { Suspense } from 'react'
 
