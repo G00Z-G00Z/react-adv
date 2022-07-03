@@ -1,4 +1,4 @@
-import { Product } from '../interfaces/interfaces'
+import { onChangeArgs, Product } from '../interfaces/interfaces'
 import { useState } from 'react'
 import '../styles/custom-styles.css'
 import {
@@ -33,7 +33,7 @@ export const ShoppingPage = () => {
     "2": { ...products[1], count: 2 },
   });
 
-  const onProductChange = () => {};
+  const onProductChange = ({ product, count }: onChangeArgs) => {};
 
   return (
     <div>
@@ -52,7 +52,7 @@ export const ShoppingPage = () => {
             key={product.id}
             product={product}
             className="bg-dark text-white"
-            onChange={() => onProductChange()}
+            onChange={onProductChange}
           >
             <ProductCard.Image className="custom-image" />
             <ProductCard.Title className="text-bold" />
