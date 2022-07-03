@@ -1,3 +1,4 @@
+import { Product } from '../interfaces/interfaces'
 import '../styles/custom-styles.css'
 import {
   ProductCard,
@@ -6,11 +7,18 @@ import {
   ProductButtons,
 } from "../components";
 
-const product = {
-  id: "1",
-  title: "Coffee Mug - Card",
-  img: "./coffee-mug.png",
-};
+const products: Product[] = [
+  {
+    id: "1",
+    title: "Coffee Mug - Card",
+    img: "./coffee-mug.png",
+  },
+  {
+    id: "2",
+    title: "Coffee Mug 2 - Card",
+    img: "./coffee-mug2.png",
+  },
+];
 
 export const ShoppingPage = () => {
   return (
@@ -25,13 +33,13 @@ export const ShoppingPage = () => {
           flexWrap: "wrap",
         }}
       >
-        <ProductCard product={product} className="bg-dark text-white">
+        <ProductCard product={products[0]} className="bg-dark text-white">
           <ProductCard.Image className="custom-image" />
           <ProductCard.Title className="text-bold" />
           <ProductCard.Buttons className="custom-buttons" />
         </ProductCard>
 
-        <ProductCard product={product} className="bg-dark text-white">
+        <ProductCard product={products[1]} className="bg-dark text-white">
           <ProductImage
             className="custom-image"
             style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}
