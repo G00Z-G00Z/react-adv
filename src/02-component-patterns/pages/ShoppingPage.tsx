@@ -1,5 +1,6 @@
 import React from 'react'
 import { IProduct } from '../interfaces'
+import '../styles/custom-styles.css'
 import {
   ProductButtons,
   ProductCard,
@@ -44,18 +45,11 @@ export const ShoppingPage = () => {
           <ProductCard.Title />
           <ProductCard.Buttons />
         </ProductCard>
-        <ProductCard product={products[1]}>
-          <ProductTitle />
-          <ProductImage />
+
+        <ProductCard product={products[1]} className="bg-dark">
+          <ProductTitle className="text-white" />
+          <ProductImage className="custom-image" />
           <ProductButtons />
-        </ProductCard>
-        <ProductCard product={products[1]}>
-          <ProductImage />
-          <ProductButtons />
-        </ProductCard>
-        <ProductCard product={products[1]}>
-          <ProductImage />
-          <ProductTitle title="no hay producto" />
         </ProductCard>
       </div>
     </div>

@@ -1,10 +1,14 @@
 import noImage from '../assets/no-image.jpg'
 import styles from '../styles/styles.module.css'
+import { FC, useContext } from 'react'
 import { ProductContext } from './ProductCard'
-import { useContext } from 'react'
 
+export interface Props {
+  img?: string;
+  className?: string;
+}
 
-export const ProductImage = ({ img = "" }) => {
+export const ProductImage: FC<Props> = ({ img = "", className }) => {
   const { product } = useContext(ProductContext);
   let imgToShow: string;
 
