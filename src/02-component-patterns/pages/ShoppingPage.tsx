@@ -1,4 +1,5 @@
 import { Product } from '../interfaces/interfaces'
+import { useState } from 'react'
 import '../styles/custom-styles.css'
 import {
   ProductCard,
@@ -20,7 +21,20 @@ const products: Product[] = [
   },
 ];
 
+interface ProductInCart extends Product {
+  count: number;
+}
+
+type ShoppingCartState = { [key: string]: ProductInCart };
+
 export const ShoppingPage = () => {
+  const [shoppingCart, setShoppingCart] = useState<ShoppingCartState>({
+    "1": { ...products[0], count: 10 },
+    "2": { ...products[1], count: 2 },
+  });
+
+  const onProductChange = () => {};
+
   return (
     <div>
       <h1>Shopping Store</h1>
@@ -38,12 +52,36 @@ export const ShoppingPage = () => {
             key={product.id}
             product={product}
             className="bg-dark text-white"
+            onChange={() => onProductChange()}
           >
             <ProductCard.Image className="custom-image" />
             <ProductCard.Title className="text-bold" />
             <ProductCard.Buttons className="custom-buttons" />
           </ProductCard>
         ))}
+      </div>
+
+      <div className="shopping-cart">
+        <ProductCard
+          product={products[0]}
+          className="bg-dark text-white"
+          style={{
+            width: "100px",
+          }}
+        >
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Buttons className="custom-buttons" />
+        </ProductCard>
+        <ProductCard
+          product={products[1]}
+          className="bg-dark text-white"
+          style={{
+            width: "100px",
+          }}
+        >
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Buttons className="custom-buttons" />
+        </ProductCard>
       </div>
     </div>
   );
