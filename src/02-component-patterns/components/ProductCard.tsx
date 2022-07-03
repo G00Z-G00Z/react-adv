@@ -1,14 +1,6 @@
 import styles from '../styles/styles.module.css'
-import { createContext } from 'react'
 import { createContext, ReactElement } from 'react'
 import { useProduct } from '../hooks/useProduct'
-import { useProduct } from '../hooks/useProduct'
-
-import {
-  ProductContextProps,
-  Product,
-  onChangeArgs,
-} from "../interfaces/interfaces";
 
 import {
   onChangeArgs,

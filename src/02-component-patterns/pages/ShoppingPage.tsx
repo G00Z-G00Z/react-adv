@@ -1,3 +1,4 @@
+import { Product } from '../interfaces/interfaces'
 import { products } from '../data/products'
 import { useShoppingCart } from '../hooks/useShoppingCart'
 import '../styles/custom-styles.css'
@@ -7,7 +8,6 @@ import {
   ProductTitle,
   ProductButtons,
 } from "../components";
-
 
 interface ProductInCart extends Product {
   count: number;
