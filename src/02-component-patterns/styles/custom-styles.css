@@ -22,8 +22,14 @@
   border-color: white;
 }
 
+.custom-buttons button,
+.custom-buttons div {
+  color: white;
+  border-color: white;
+}
+
 .shopping-cart {
   position: fixed;
-  right: 0px;
-  top: 20px;
+  right: 10px;
+  top: 0px;
 }
